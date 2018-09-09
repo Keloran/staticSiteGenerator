@@ -1,0 +1,4 @@
+github.com/bugfixes/go-bugfixes v1.0.3 h1:4td7eBbFoTm9Ne88I5yVzLfphKhnHu+/ENRrgSKof5Q=
+github.com/bugfixes/go-bugfixes v1.0.3/go.mod h1:BmGmj7noiD0F3e88q6z/ljSMllP9AhLaHMMG9AIooBs=
+github.com/zserge/webview v0.0.0-20180817065719-24af6cb9b33b h1:6D9NKn1W8o1JSZG0I1cyfbdn4x6pns5qNrhLsgG+oJE=
+github.com/zserge/webview v0.0.0-20180817065719-24af6cb9b33b/go.mod h1:a1CV8KR4Dd1eP2g+mEijGOp+HKczwdKHWyx0aPHKvo4=
