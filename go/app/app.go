@@ -3,6 +3,7 @@ package app
 import (
 	"github.com/bugfixes/go-bugfixes"
 	"github.com/zserge/webview"
+	"main/app/items"
 	"main/app/parse"
 	"main/settings"
 	"net"
@@ -16,6 +17,7 @@ func App(prefixChannel chan string, fileDir string) {
 	mux.Handle("/dist/", http.StripPrefix("/dist/", http.FileServer(http.Dir(fileDir + "/dist"))))
 	mux.Handle("/", http.FileServer(http.Dir(fileDir + "/dist")))
 	mux.HandleFunc("/parse", parse.Parse)
+	mux.HandleFunc("/list", items.List)
 
 	listener, err := net.Listen("tcp", "127.0.0.1:0")
 	if err != nil {

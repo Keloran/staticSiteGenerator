@@ -4,16 +4,24 @@
         <title>Static Site Generator</title>
     </head>
     <body>
-        <button id="close" class="interfaceButton">Close</button>
-        <!-- <button id="fullScreen" class="interfaceButton">FullScreen</button> -->
-        <button id="info" class="interfaceButton">Info</button>
-
+        <aside id="mainNav">
+            <ul>
+                <li><i class="fas fa-archive" id="home">Home</i></li>
+                <li><i class="fas fa-file" id="new"> New</i></li>
+            </ul>
+        </aside>
         <div id="app">
-            <div id="creator">
-                <textarea id="content"></textarea>
-                <button id="save">Save</button>
+            <div id="liveTab">
+
             </div>
-            <content id="render"></content>
+
+            <div id="newTab">
+                <div id="creator">
+                    <textarea id="content"></textarea>
+                    <button id="save">Save</button>
+                </div>
+                <content id="render"></content>
+            </div>
         </div>
         <script src="index.js"></script>
     </body>

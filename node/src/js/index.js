@@ -1,63 +1,64 @@
-import classes from '../css/index.css'
+import classes from '../css/index.less'
 
-const axios = require('axios')
-
-function invokeFullScreen(event) {
-  let fullscreen = document.getElementById("fullScreen")
-  if (fullscreen.getAttribute("full") == "full") {
-    external.invoke("window")
-    fullscreen.setAttribute("full", "window")
-  }
-
-  external.invoke("fullscreen")
-  fullscreen.setAttribute("full", "full")
-}
-
-function invokeClose(event) {
-  external.invoke("close")
-}
-
-function invokeInfo(event) {
-  external.invoke("info")
-}
+const axios = require('axios');
 
 function invokeResize(event) {
   external.invoke("windowSize:" + window.innerWidth + "|" + window.innerHeight)
 }
 
 function invokeSave() {
-  let content = document.getElementById("content")
+  let content = document.getElementById("content");
 
   axios({
     method: 'post',
     url: '/parse',
     data: content.value
   }).then((response) => {
-    let render = document.getElementById("render")
+    let render = document.getElementById("render");
     render.innerHTML = response.data
+  })
+}
+
+function openItem(event) {
+  console.log("itemId", event.target.itemId)
+}
+
+function getList() {
+  axios({
+      method: 'get',
+      url: '/list'
+  }).then((response) => {
+    let liveTab = document.getElementById("liveTab");
+
+    let listItem;
+    let itemIcon = "file";
+    let item;
+    let listItemText;
+
+    for (let i = 0; i < response.data.length; i++) {
+      item = response.data[i];
+      itemIcon = item.icon;
+
+      listItem = document.createElement("i");
+      listItem.className = "articleItem fas fa-" + itemIcon;
+      listItem.itemId = item.id;
+      listItem.onclick = openItem;
+
+      listItemText = document.createTextNode(" " + item.title);
+      listItem.appendChild(listItemText);
+
+      liveTab.appendChild(listItem);
+    }
   })
 }
 
 export default() => {
   window.onresize = invokeResize
 
-  let fullScreen = document.getElementById("fullScreen")
-  if (fullScreen) {
-    fullScreen.onclick = invokeFullScreen
-  }
-
-  let close = document.getElementById("close")
-  if (close) {
-    close.onclick = invokeClose
-  }
-
-  let info = document.getElementById("info")
-  if (info) {
-    info.onclick = invokeInfo
-  }
-
-  let save = document.getElementById("save")
+  let save = document.getElementById("save");
   if (save) {
     save.onclick = invokeSave
   }
+
+  getList()
 }
