@@ -2,3 +2,13 @@ github.com/bugfixes/go-bugfixes v1.0.3 h1:4td7eBbFoTm9Ne88I5yVzLfphKhnHu+/ENRrgS
 github.com/bugfixes/go-bugfixes v1.0.3/go.mod h1:BmGmj7noiD0F3e88q6z/ljSMllP9AhLaHMMG9AIooBs=
 github.com/zserge/webview v0.0.0-20180817065719-24af6cb9b33b h1:6D9NKn1W8o1JSZG0I1cyfbdn4x6pns5qNrhLsgG+oJE=
 github.com/zserge/webview v0.0.0-20180817065719-24af6cb9b33b/go.mod h1:a1CV8KR4Dd1eP2g+mEijGOp+HKczwdKHWyx0aPHKvo4=
+gitlab.com/golang-commonmark/html v0.0.0-20180909105223-0145dad93f03 h1:VJLCQ0fCtrYUNRsK1PG3gsIQRUhqfnU1L7PIS0NgfrU=
+gitlab.com/golang-commonmark/html v0.0.0-20180909105223-0145dad93f03/go.mod h1:JT4uoTz0tfPoyVH88GZoWDNm5NHJI2VbUW+eyPClueI=
+gitlab.com/golang-commonmark/linkify v0.0.0-20180909105552-8b92a4734642 h1:M2/GcOCQ1dzzs55U/f6kuoyGfkCpzK51oJNENDWGGPc=
+gitlab.com/golang-commonmark/linkify v0.0.0-20180909105552-8b92a4734642/go.mod h1:Gn+LZmCrhPECMD3SOKlE+BOHwhOYD9j7WT9NUtkCrC8=
+gitlab.com/golang-commonmark/markdown v0.0.0-20180911141322-7c82dd6a2cc3 h1:EvNL9WyBUM92SlRamrwy8WdFAVTktRog27/YusykTMQ=
+gitlab.com/golang-commonmark/markdown v0.0.0-20180911141322-7c82dd6a2cc3/go.mod h1:SIHlEr9462fpIfTrVWf3GqQDxnA65Vm3BMMsUtuA6W0=
+gitlab.com/golang-commonmark/mdurl v0.0.0-20180909105747-40600307b8ae h1:wczx8TtrxYFyNEHtZoWaitDvMzMJ1gJkF51dfa04gd4=
+gitlab.com/golang-commonmark/mdurl v0.0.0-20180909105747-40600307b8ae/go.mod h1:wQk4rLkWrdOPjUAtqJRJ10hIlseLSVYWP95PLrjDF9s=
+gitlab.com/golang-commonmark/puny v0.0.0-20180909105900-cf468c96b550 h1:XUqIADIu3k4hhtK7x3Nafnm1me8LEpmwL2pBOJnrQ/Y=
+gitlab.com/golang-commonmark/puny v0.0.0-20180909105900-cf468c96b550/go.mod h1:P9LSM1KVzrIstFgUaveuwiAm8PK5VTB3yJEU8kqlbrU=

@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Static Generator</title>
+        <title>Static Site Generator</title>
     </head>
     <body>
+        <button id="close" class="interfaceButton">Close</button>
+        <!-- <button id="fullScreen" class="interfaceButton">FullScreen</button> -->
+        <button id="info" class="interfaceButton">Info</button>
+
         <div id="app">
-            Static
-
-            <i id="exit">Exit</i>
+            <div id="creator">
+                <textarea id="content"></textarea>
+                <button id="save">Save</button>
+            </div>
+            <content id="render"></content>
         </div>
-
-        <script src="./index.js"></script>
+        <script src="index.js"></script>
     </body>
 </html>

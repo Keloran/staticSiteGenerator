@@ -19,11 +19,9 @@ LOC=$(pwd)
 
 buildIt()
 {
-    cd $LOC/go
     buildGoApp
-
-    cd $LOC/node
     buildNodeApp
+    cleanGo
 }
 
 cleanIt()
@@ -43,17 +41,23 @@ runIt()
 
 buildGoApp()
 {
+    cd $LOC/go
     go build -o staticSite.app/Contents/MacOS/staticSite
     cp -r staticSite.app ../
 }
 
 buildNodeApp()
 {
+    cd $LOC/node
     yarn build
     cp -r dist/ ../staticSite.app/Contents/MacOS/dist
 }
 
-# cp -R public tester.app/Contents/MacOS
+cleanGo()
+{
+     cd $LOC/go
+     rm -rf staticSite.app
+}
 
 while getopts ":?cbrh" OPTION; do
     case $OPTION in
