@@ -6,16 +6,22 @@
     <body>
         <aside id="mainNav">
             <ul>
-                <li><i class="fas fa-archive" id="home">Home</i></li>
-                <li><i class="fas fa-file" id="new"> New</i></li>
+                <li><i class="fas fa-archive" id="homePageButton">Home</i></li>
+                <li><i class="fas fa-file" id="newPageButton">New</i></li>
+                <li><hr /></li>
+                <li><i class="fas fa-cog" id="settingsButton">Settings</i></li>
             </ul>
         </aside>
         <div id="app">
-            <div id="liveTab">
-
+            <div id="settingsPage" class="hidden">
+                Settings
             </div>
 
-            <div id="newTab">
+            <div id="homePage" class="hidden">
+                <ul id="liveList"></ul>
+            </div>
+
+            <div id="newPage" class="hidden">
                 <div id="creator">
                     <textarea id="content"></textarea>
                     <button id="save">Save</button>

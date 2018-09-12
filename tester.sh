@@ -49,6 +49,7 @@ buildGoApp()
 buildNodeApp()
 {
     cd $LOC/node
+    yarn
     yarn build
     cp -r dist/ ../staticSite.app/Contents/MacOS/dist
 }
@@ -68,7 +69,6 @@ while getopts ":?cbrh" OPTION; do
             buildIt
             ;;
         r)
-            buildIt
             runIt
             ;;
         h)

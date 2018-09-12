@@ -69,4 +69,11 @@ func HandleRPC(view webview.WebView, data string) {
 		settings.SetWidth("", widthInt)
 		settings.SetHeight("", heightInt)
 	}
+
+	if strings.HasPrefix(data, "error:") {
+		var stripped = strings.TrimPrefix(data, "error:")
+		var errorMessage = strings.Split(stripped, "|")
+
+		view.Dialog(webview.DialogTypeAlert, webview.DialogFlagError, errorMessage[0], errorMessage[1])
+	}
 }

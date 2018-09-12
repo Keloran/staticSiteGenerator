@@ -1,64 +1,50 @@
 import classes from '../css/index.less'
 
-const axios = require('axios');
-
-function invokeResize(event) {
-  external.invoke("windowSize:" + window.innerWidth + "|" + window.innerHeight)
-}
-
-function invokeSave() {
-  let content = document.getElementById("content");
-
-  axios({
-    method: 'post',
-    url: '/parse',
-    data: content.value
-  }).then((response) => {
-    let render = document.getElementById("render");
-    render.innerHTML = response.data
-  })
-}
-
-function openItem(event) {
-  console.log("itemId", event.target.itemId)
-}
-
-function getList() {
-  axios({
-      method: 'get',
-      url: '/list'
-  }).then((response) => {
-    let liveTab = document.getElementById("liveTab");
-
-    let listItem;
-    let itemIcon = "file";
-    let item;
-    let listItemText;
-
-    for (let i = 0; i < response.data.length; i++) {
-      item = response.data[i];
-      itemIcon = item.icon;
-
-      listItem = document.createElement("i");
-      listItem.className = "articleItem fas fa-" + itemIcon;
-      listItem.itemId = item.id;
-      listItem.onclick = openItem;
-
-      listItemText = document.createTextNode(" " + item.title);
-      listItem.appendChild(listItemText);
-
-      liveTab.appendChild(listItem);
-    }
-  })
-}
+const Homepage = require('./homepage')
+const Display = require('./display')
+const Settings = require('./settings')
 
 export default() => {
-  window.onresize = invokeResize
+  const homepage = new Homepage()
+  const display = new Display()
+  const settings = new Settings()
 
-  let save = document.getElementById("save");
-  if (save) {
-    save.onclick = invokeSave
+  window.onresize = display.invokeResize
+
+  let homePageButton = document.getElementById("homePageButton");
+  if (homePageButton) {
+    homePageButton.onclick = () => {
+      display.show("homePage")
+      homepage.getList()
+    }
+
+    homePageButton.click()
   }
 
-  getList()
+  let newPageButton = document.getElementById("newPageButton")
+  if (newPageButton) {
+    newPageButton.onclick = () => {
+      display.show("newPage")
+    }
+  }
+
+  let settingsButton = document.getElementById("settingsButton")
+  if (settingsButton) {
+    settingsButton.onclick = () => {
+      display.show("settingsPage")
+    }
+  }
+
+  settings.checkSavedSettings((err, saved) => {
+    if (err) {
+      return external.invoke("error:checkSaveSettings|" + err)
+    }
+
+    if (saved) {
+      homePageButton.click()
+    } else {
+      display.show('settings')
+      settings.showPage()
+    }
+  })
 }
