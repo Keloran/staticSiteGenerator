@@ -1,4 +1,11 @@
-import js from './js'
-import '@fortawesome/fontawesome-free/css/all.css'
+import Vue from 'vue'
+import AtUI from 'at-ui'
+import 'at-ui-style'
 
-js()
+import App from './App.vue'
+
+Vue.use(AtUI)
+
+new Vue({
+  render: h => h(App)
+}).$mount('#app')
